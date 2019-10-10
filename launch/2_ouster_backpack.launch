@@ -13,7 +13,8 @@
 -->
 
 <launch>
-
+  <!--sensors.launch launches the imu and both ousters-->	
+	<include file="$(find ouster_backpack_bringup)/launch/sensors.launch" />
 
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="

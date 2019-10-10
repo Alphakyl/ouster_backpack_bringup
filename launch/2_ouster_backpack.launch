@@ -13,8 +13,9 @@
 
 <launch>
 
-<include file="$(find ouster_ros)/os1.launch" />
-<include file="$(find ouster_ros)/os1-2.launch" />
+<include file="$(find ouster_driver)/os1-1.launch" />
+<include file="$(find ouster_driver)/os1-2.launch" />
+
 <include file="$(find microstrain_driver)/launch/3dm_gx5_15.launch" />
   <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />
 
@@ -44,13 +45,11 @@
   </node>
 
   <param name="robot_description"
-    textfile="$(find cartographer_ros)/urdf/2_ouster_backpack.urdf" />
+    textfile="$(find ouster_backpack_bringup)/urdf/2_ouster_backpack.urdf" />
 
-  <node name="robot_state_publisher" pkg="robot_state_publisher"
-    type="robot_state_publisher" />
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
-          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_directory $(find ouster_backpack_bringup)/configuration_files
           -configuration_basename 2_ouster_3d.lua"
       output="screen">
     <remap from="/odom" to="/transformed_odom"/> 

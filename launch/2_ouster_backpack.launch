@@ -1,3 +1,4 @@
+<?xml version="1.0" ?>
 <!--
   Copyright 2016 The Cartographer Authors
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,39 +14,6 @@
 
 <launch>
 
-<include file="$(find ouster_driver)/os1-1.launch" />
-<include file="$(find ouster_driver)/os1-2.launch" />
-
-<include file="$(find microstrain_driver)/launch/3dm_gx5_15.launch" />
-  <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />
-
-  <!-- Run a passthrough filter to clean NaNs -->
-  <node pkg="nodelet" type="nodelet" name="passthrough" args="load pcl/PassThrough pcl_manager" output="screen">
-    <remap from="~input" to="/os1_node/points" />
-    <rosparam>
-      filter_field_name: z
-      filter_limit_min: 0.01
-      filter_limit_max: 2.0
-      filter_limit_negative: False
-    </rosparam>
-  </node>
-  
-
-  <node pkg="nodelet" type="nodelet" name="pcl_manager_2" args="manager" output="screen" />
-
-  <!-- Run a passthrough filter to clean NaNs -->
-  <node pkg="nodelet" type="nodelet" name="passthrough_2" args="load pcl/PassThrough pcl_manager_2" output="screen">
-    <remap from="~input" to="/os1_node_2/points" />
-    <rosparam>
-      filter_field_name: z
-      filter_limit_min: 0.01
-      filter_limit_max: 2.0
-      filter_limit_negative: False
-    </rosparam>
-  </node>
-
-  <param name="robot_description"
-    textfile="$(find ouster_backpack_bringup)/urdf/2_ouster_backpack.urdf" />
 
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="

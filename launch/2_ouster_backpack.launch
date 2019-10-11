@@ -22,14 +22,12 @@
           -configuration_basename 2_ouster_3d.lua"
       output="screen">
     <remap from="/odom" to="/transformed_odom"/> 
-    <remap from="/points2_1" to="/os1_node/points"/>
-    <remap from="/points2_2" to="/os1_node_2/points"/>
+    <remap from="/points2_1" to="/points_raw_1"/>
+    <remap from="/points2_2" to="/points_raw_2"/>
     <remap from="/imu" to="/imu_raw"/>
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
       type="cartographer_occupancy_grid_node" args="-resolution 0.2" />
-
-  <node pkg="octomap_server" name="husky_odom_publisher" type="husky_odom_pub" output="screen"/>
 
 </launch>

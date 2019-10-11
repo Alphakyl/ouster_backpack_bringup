@@ -15,7 +15,7 @@
   <arg name="lidar_topic_name" default="/points_raw_1" doc="Topic name for lidar output message"/>
   <arg name="imu_frame_name" default="os1_1" doc="Frame name for IMU output message"/>
   <arg name="imu_topic_name" default="/imu_raw_1" doc="Topic name for IMU output message"/>
-  <arg name="operation_mode" default="2048x10" doc="Supported operation modes: 512x10, 1024x10, 2048x10, 512x20, 1024x20 (horizontal resolution x scan rate)"/>
+  <arg name="operation_mode" default="1024x10" doc="Supported operation modes: 512x10, 1024x10, 2048x10, 512x20, 1024x20 (horizontal resolution x scan rate)"/>
   <arg name="pulse_mode" default="STANDARD" doc="Laser pulse width, available modes: STANDARD and NARROW"/>
   <arg name="window_rejection" default="true" doc="Window (short range) rejection enable"/>
 

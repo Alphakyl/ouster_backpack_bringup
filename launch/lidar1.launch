@@ -1,0 +1,5 @@
+<launch>
+    <include ns="lidar1" file="$(find rplidar_ros)/launch/rplidar_s1.launch">
+        <arg name="serial_port" value="/dev/ttyUSB1"/>
+    </include>
+</launch>

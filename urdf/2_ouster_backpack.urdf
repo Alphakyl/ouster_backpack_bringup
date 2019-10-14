@@ -1,3 +1,4 @@
+<?xml version="1.0" ?>
 <!--
   Copyright 2016 The Cartographer Authors
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -29,7 +30,7 @@
     </visual>
   </link>
 
-  <link name="os1_1">
+  <link name="ouster_1/os1_lidar">
     <visual>
       <origin xyz="0.0 0.0 0.0" />
       <geometry>
@@ -39,7 +40,7 @@
     </visual>
   </link>
 
-  <link name="os1_2">
+  <link name="ouster_2/os1_lidar">
     <visual>
       <origin xyz="0.0 0.0 0.0" />
       <geometry>
@@ -59,14 +60,14 @@
 
   <joint name="os1_link_joint" type="fixed">
     <parent link="base_link" />
-    <child link="os1_1" />
-    <origin xyz="0.0 0. 0.07" rpy="0.0 0.0 0.0" />
+    <child link="ouster_1/os1_lidar" />
+    <origin xyz="0.0 0. 0.07" rpy="0.0 0.0 3.14159" />
   </joint>
 
   <joint name="os1_2_link_joint" type="fixed">
     <parent link="base_link" />
-    <child link="os1_2"/>
-    <origin xyz="0.0 0.17145 -0.060325" rpy="1.5708, 0.0 0.0" />
+    <child link="ouster_2/os1_lidar"/>
+    <origin xyz="0.0 0.17145 -0.060325" rpy="-1.5708 0.0 3.14159" />
   </joint>
 
 </robot>

@@ -13,9 +13,10 @@
 -->
 
 <launch>
-
-	<include file="$(find ouster_driver)/launch/os1-1.launch" />
-	<include file="$(find ouster_driver)/launch/os1-2.launch" />
+  <include file="$(find ouster_ros)/os1-1.launch" />
+  <include file="$(find ouster_ros)/os1-2.launch" />
+	<!--<include file="$(find ouster_driver)/launch/os1-1.launch" />-->
+	<!--<include file="$(find ouster_driver)/launch/os1-2.launch" />-->
 	<include file="$(find microstrain_driver)/launch/3dm_gx5_15.launch" />
 
   <include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">

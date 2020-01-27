@@ -12,7 +12,7 @@
   limitations under the License.
 -->
 
-<robot name="cartographer_backpack_3d">
+<robot name="vantage_tactical">
   <material name="orange">
     <color rgba="1.0 0.5 0.2 1" />
   </material>
@@ -20,38 +20,22 @@
     <color rgba="0.2 0.2 0.2 1" />
   </material>
 
-  <link name="3dm_gx5_15">
+  <link name="vantage" />
+  
+  <link name="vantage_2">
     <visual>
       <origin xyz="0.0 0.0 0.0" />
-      <geometry>
-        <box size="0.06 0.04 0.02" />
-      </geometry>
-      <material name="orange" />
-    </visual>
+			<geometry>
+				<box size="0.06 0.04 0.02" />
+			</geometry>
+			<material name="gray"/> 
+		</visual>
   </link>
-
-  <link name="os1">
-    <visual>
-      <origin xyz="0.0 0.0 0.0" />
-      <geometry>
-        <cylinder length="0.07" radius="0.05" />
-      </geometry>
-      <material name="gray" />
-    </visual>
-  </link>
-
-  <link name="base_link" />
-
-  <joint name="imu_link_joint" type="fixed">
-    <parent link="base_link" />
-    <child link="3dm_gx5_15" />
-    <origin xyz="0 0 0" rpy="3.1416 0 1.5708" />
-  </joint>
-
-  <joint name="os1_link_joint" type="fixed">
-    <parent link="base_link" />
-    <child link="os1" />
-    <origin xyz="0.0 0. 0.07" rpy="0.0 0.0 0.0" />
+	
+	<joint name="vantage_joint" type="fixed">
+		<parent link="vantage" />
+		<child link="vantage_2" />
+		<origin xyz="-0.0788 -0.0628 -0.4120" rpy="0.0020071 -0.0019928 0.007152"/>
   </joint>
 
 </robot>

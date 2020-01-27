@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+
+<launch>
+  <param name="/use_sim_time" value="true"/>
+  
+  <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find ouster_backpack_bringup)/configuration_files/multi_ouster_cartographer.rviz"/>
+
+	<node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+		<!-- smallest leaflet size [m] -->
+    <param name="resolution" value="0.20"/>
+		 <!-- publish free space (octomap_point_cloud_free) -->
+		<param name="publish_free_space" value="true"/>
+
+		<!-- fixed map frame (set to 'map' if SLAM or localization running!) -->
+		<param name="frame_id" type="string" value="world" />
+
+		<!-- turn on/off latching of publishers (new subscribers will get last message) -->
+		<param name="latch" type="bool" value="0" />
+
+		<!-- maximum range to integrate (speedup!) -->
+		<param name="sensor_model/max_range" value="7.0" />
+		
+		<!-- data source to integrate (PointCloud2) -->
+		<!-- 
+		<remap from="cloud_in" to="/$(env ROS_HOSTNAME)/camera/depth_registered/points" />
+    -->
+	</node>
+	<node pkg="topic_tools" type="relay" name="cloud_h_relay" args="/HD2/os1_cloud_node_h/points cloud_in"/>
+  <node pkg="topic_tools" type="relay" name="cloud_v_relay" args="/HD2/os1_cloud_node_v/points cloud_in"/>
+
+	<node pkg="rosbag" type="play" name="player" output="screen" args="--clock /media/kyle/45bfdd4b-6c7c-4d6a-a09d-21fbe576aa92/bag/_2019-12-16-19-48-44.bag"/>
+</launch>

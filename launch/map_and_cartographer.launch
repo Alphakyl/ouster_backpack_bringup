@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<launch>
+	<include file="$(find ouster_backpack_bringup)/launch/2_ouster_backpack.launch"/>
+  <include file="$(find ouster_backpack_bringup)/launch/octomap_mapping.launch"/>
+</launch>

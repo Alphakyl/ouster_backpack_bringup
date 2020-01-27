@@ -1,3 +1,4 @@
+<?xml version="1.0" ?>
 <!--
   Copyright 2016 The Cartographer Authors
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,19 +18,19 @@
   <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find cartographer_ros)/configuration_files/demo_3d.rviz" />
   
   <param name="robot_description"
-    textfile="$(find cartographer_ros)/urdf/ouster_backpack.urdf" />
+    textfile="$(find ouster_backpack_bringup)/urdf/ouster_backpack.urdf" />
 
   <node name="robot_state_publisher" pkg="robot_state_publisher"
     type="robot_state_publisher" />
   <node name="cartographer_offline_node" pkg="cartographer_ros"
       type="cartographer_offline_node" args="
-          -configuration_directory $(find cartographer_ros)/configuration_files
-          -configuration_basenames H02_3d.lua
-	  -urdf_filenames $(find cartographer_ros)/urdf/ouster_backpack.urdf
+          -configuration_directory $(find ouster_backpack_bringup)/configuration_files
+          -configuration_basenames gene_3D_1_Ouster.lua
+	  -urdf_filenames $(find ouster_backpack_bringup)/urdf/ouster_backpack.urdf
 	  -bag_filenames $(arg bag_filenames)"
       output="screen">
     <remap from="/odom" to="/transformed_odom"/> 
-    <remap from="/points2" to="/os1_node/points"/>
+    <remap from="/points2" to="/os1_1_cloud_node/points"/>
     <remap from="/imu" to="/imu_raw"/>
   </node>
 

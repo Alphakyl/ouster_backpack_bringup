@@ -17,10 +17,10 @@
 		<param name="sensor_model/max_range" value="5.0" />
 		
 		<!-- data source to integrate (PointCloud2) -->
-		<!-- 
-		<remap from="cloud_in" to="/$(env ROS_HOSTNAME)/camera/depth_registered/points" />
-    -->
+		 
+		<remap from="cloud_in" to="/scan_matched_points2" />
+ 
 	</node>
-	<node pkg="topic_tools" type="relay" name="cloud_h_relay" args="/HD2/os1_cloud_node_h/points cloud_in"/>
-  <node pkg="topic_tools" type="relay" name="cloud_v_relay" args="/HD2/os1_cloud_node_v/points cloud_in"/>
+<!--	<node pkg="topic_tools" type="relay" name="cloud_h_relay" args="/os1_1_cloud_node/points cloud_in"/>
+  <node pkg="topic_tools" type="relay" name="cloud_v_relay" args="/os1_2_cloud_node/points cloud_in"/>-->
 </launch>

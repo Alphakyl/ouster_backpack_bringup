@@ -49,8 +49,8 @@
       <material name="gray" />
     </visual>
   </link>
-
-  <link name="v/os1_lidar">
+  
+  <link name="ouster_2/os1_lidar">
     <visual>
       <origin xyz="0.0 0.0 0.0" />
       <geometry>
@@ -59,7 +59,7 @@
       <material name="gray" />
     </visual>
   </link>
-
+  
   <link name="base_link" />
 
   <joint name="imu_link_joint" type="fixed">

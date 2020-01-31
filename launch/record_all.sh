@@ -1,26 +1,16 @@
 #!/bin/bash
-rosbag record -o ~/kyle_repos/bagfiles/ \
-	/constraint_list \
-	/husky_odom \
-	/husky_point \
-	/imu_raw \
-	/joint_states \
-	/landmark_poses_list \
-	/map \
-	/os1_node/imu \
-	/os1_node/imu_packets \
-	/os1_node/lidar_packets \
-	/os1_node/points \
-	/passthrough/output \
-	/passthrough/parameter_descriptions \
-	/passthrough/parameter_updates \
-	/pcl_manager/bond \
-	/rosout \
-	/rousout_agg \
-	/scan_matched_points2 \
-	/submap_list \
-	/tf \
-	/tf_static \
-	/trajectory_node_list
-
-	
+rosbag record -o ./bag/  \
+/HD2/assembled_cloud \
+/HD2/constraint_list \
+/HD2/hokuyo_points \
+/HD2/imu_raw \
+/HD2/landmark_poses_list \
+/HD2/map \
+/HD2/os1_cloud_node_h/points \
+/HD2/os1_cloud_node_v/points \
+/HD2/scan \
+/HD2/scan_matched_points2 \
+/HD2/submap_list \
+/HD2/trajectory_node_list \
+/tf \
+/tf_static

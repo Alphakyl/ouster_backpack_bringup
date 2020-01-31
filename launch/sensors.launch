@@ -13,12 +13,10 @@
 -->
 
 <launch>
-  <include file="$(find ouster_ros)/os1-1.launch" />
-  <include file="$(find ouster_ros)/os1-2.launch" />
-	<!--<include file="$(find ouster_driver)/launch/os1-1.launch" />-->
-	<!--<include file="$(find ouster_driver)/launch/os1-2.launch" />-->
+	<include file="$(find ouster_backpack_bringup)/launch/os1-h-64.launch" />
+	<include file="$(find ouster_backpack_bringup)/launch/os1-v-16.launch" />
 	<include file="$(find microstrain_driver)/launch/3dm_gx5_15.launch" />
-
+  <!--
   <include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
     <arg name="time" value="1" />
     <arg name="pkg" value="ouster_backpack_bringup" />
@@ -30,8 +28,7 @@
     <arg name="pkg" value="ouster_backpack_bringup" />
     <arg name="file" value="lidar1.launch" />
   </include>
-
-
+  -->
 	<param name="robot_description"
 		textfile="$(find ouster_backpack_bringup)/urdf/2_ouster_backpack.urdf" />
   

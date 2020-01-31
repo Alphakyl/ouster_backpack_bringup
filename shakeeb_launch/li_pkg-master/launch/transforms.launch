@@ -1,0 +1,10 @@
+
+<launch>  
+	<node pkg="tf2_ros" type="static_transform_publisher" name="microstrain2body" args="0 0 0 0 0 3.14159 base_link gx5_link"/>
+
+	<node pkg="tf2_ros" type="static_transform_publisher" name="terabee2body" args="0 0 -0.1143 0 0 0 1 base_link base_range"/>
+
+	<node pkg="tf2_ros" type="static_transform_publisher" name="ouster2body" args="0 0 -0.1143 0 0 3.14159 base_link os1_lidar"/>
+
+	<!--node pkg="tf2_ros" type="static_transform_publisher" name="world2odom" args="0 0 0 0 0 0 1 odom world" /-->
+</launch>

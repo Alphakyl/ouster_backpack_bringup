@@ -19,7 +19,7 @@
     <color rgba="0.2 0.2 0.2 1" />
   </material>
 
-  <link name="3dm_gx5_15">
+  <link name="imu_link">
     <visual>
       <origin xyz="0.0 0.0 0.0" />
       <geometry>
@@ -43,7 +43,7 @@
 
   <joint name="imu_link_joint" type="fixed">
     <parent link="base_link" />
-    <child link="3dm_gx5_15" />
+    <child link="imu_link" />
     <origin xyz="0 0 0" rpy="3.1416 0 1.5708" />
   </joint>
 

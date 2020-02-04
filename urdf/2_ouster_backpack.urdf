@@ -29,16 +29,6 @@
       <material name="orange" />
     </visual>
   </link>
-
-  <link name="servo">
-	  <visual>
-		  <origin xyz="0.0 0.0 0.0"/>
-		  <geometry>
-			  <box size="0.06 0.04 0.02" />
-		  </geometry>
-		  <material name="grey"/>
-	  </visual>
-  </link>
   
   <link name="h/os1_lidar">
     <visual>
@@ -50,7 +40,7 @@
     </visual>
   </link>
   
-  <link name="ouster_2/os1_lidar">
+  <link name="v/os1_lidar">
     <visual>
       <origin xyz="0.0 0.0 0.0" />
       <geometry>
@@ -78,12 +68,6 @@
     <parent link="base_link" />
     <child link="v/os1_lidar"/>
     <origin xyz="0.0 0.17145 -0.060325" rpy="-1.5708 0.0 3.14159" />
-  </joint>
-
-  <joint name="saurav_link_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="servo"/>>
-    <origin xyz="0.2 0.0 -0.22" rpy="0.0 0.0 0.0"/>
   </joint>
 
 </robot>

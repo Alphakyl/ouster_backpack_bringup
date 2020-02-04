@@ -14,9 +14,9 @@
           -configuration_basename 2_ouster_test.lua"
       output="screen">
     <remap from="/odom" to="/transformed_odom"/> 
-    <remap from="/points2_1" to="/os1_1_cloud_node/points"/>
-    <remap from="/points2_2" to="/os1_2_cloud_node/points"/>
-    <remap from="/imu" to="/imu_raw"/>
+    <remap from="/points2_1" to="/HD2/os1_cloud_node_h/points"/>
+    <remap from="/points2_2" to="/HD2/os1_cloud_node_v/points"/>
+    <remap from="/imu" to="/HD2/imu_raw"/>
   </node>
 
 	<include file="$(find ouster_backpack_bringup)/launch/octomap_mapping.launch"/>
@@ -25,6 +25,6 @@
       type="cartographer_occupancy_grid_node" args="-resolution 0.2" />
   <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find ouster_backpack_bringup)/configuration_files/multi_ouster_cartographer.rviz"/>
 
-	<node pkg="rosbag" type="play" name="player" output="screen" args="--clock /media/kyle/45bfdd4b-6c7c-4d6a-a09d-21fbe576aa92/no_tfstatic_fullrig_2019-10-15-09-32-32.bag"/>
-	
+	<node pkg="rosbag" type="play" name="player" output="screen" args="--clock /media/kyle/45bfdd4b-6c7c-4d6a-a09d-21fbe576aa92/multi_bag/test1_2020-02-03-18-22-56.bag"/>
+
 </launch>

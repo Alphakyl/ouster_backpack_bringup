@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="-configuration_directory $(find ouster_backpack_bringup)/configuration_files -configuration_basename 2_ouster_3d.lua" output="screen">
+    <remap from="/odom" to="/transformed_odom"/> 
+    <remap from="/points2" to="/HD2/os1_cloud_node_h/points"/>
+    <!--<remap from="/points2_2" to="/os1_2_cloud_node/points"/>-->
+    <remap from="/imu" to="/HD2/imu_raw"/>
+  </node>
+
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.2" />
+
+</launch>

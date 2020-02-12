@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+
+<launch>
+  <!--Use for bags-->
+	<param name="/use_sim_time" value="true"/>
+  <!--Use for visualization-->
+  <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find ouster_backpack_bringup)/configuration_files/bag_multi_ouster_cartographer.rviz"/>
+
+	<!--Adding URDF for robot description-->
+	<param name="robot_description" textfile="$(find ouster_backpack_bringup)/urdf/2_ouster_backpack.urdf" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  
+  <!--Launch octomap-->
+	<include file="$(find ouster_backpack_bringup)/launch/octomap_mapping.launch"/>
+	
+	<!--Launch cartographer-->
+	<include file="$(find ouster_backpack_bringup)/launch/cartographer/1_ouster_3d.launch"/>
+		
+	<!--Launch bagfile-->
+	<node pkg="rosbag" type="play" name="player" output="screen" args="--clock /media/kyle/45bfdd4b-6c7c-4d6a-a09d-21fbe576aa92/bag/sensor.bag"/>
+</launch>

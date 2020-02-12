@@ -17,6 +17,6 @@
 		<param name="sensor_model/max_range" value="5.0" />
 
 	</node>
-	<node pkg="topic_tools" type="relay" name="cloud_h_relay" args="/HD2/os1_cloud_node_h/points /HD2/cloud_in"/>
-    <node pkg="topic_tools" type="relay" name="cloud_v_relay" args="/HD2/os1_cloud_node_v/points /HD2/cloud_in"/>-->
+	<node pkg="topic_tools" type="relay" name="cloud_h_relay" args="/HD2/os1_cloud_node_h/points /cloud_in"/>
+  <node pkg="topic_tools" type="relay" name="cloud_v_relay" args="/HD2/os1_cloud_node_v/points /cloud_in"/>-->
 </launch>

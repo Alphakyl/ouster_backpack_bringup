@@ -1,0 +1,4 @@
+<?xml version="1.0" ?>
+<launch>
+	<node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find ouster_backpack_bringup)/configuration_files/multi_ouster_cartographer.rviz"/>
+</launch>
